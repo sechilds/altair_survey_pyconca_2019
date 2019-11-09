@@ -1,4 +1,4 @@
-charts = big_dino1.json small_dino1.json anscombe_all.json unique_count1.json unique_count2.json unique_count3.json
+charts = big_dino1.json small_dino1.json anscombe_all.json unique_count1.json unique_count2.json unique_count3.json div_bar1.json div_bar2.json div_bar3.json div_bar4.json div_bar5.json div_bar6.json
 
 
 all : ${charts} data/long_data.csv data/response_data1.csv

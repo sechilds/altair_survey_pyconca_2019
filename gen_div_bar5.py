@@ -9,5 +9,5 @@ alt.Chart(df).mark_bar().encode(
         fill = alt.Fill('response:N', scale = alt.Scale(scheme = 'dark2'))
 ).facet(
     row = 'field_name:N'
-).save('div_bar6.json')
+).save('div_bar5.json')
 
