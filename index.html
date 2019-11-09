@@ -21,16 +21,36 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@3.4.0"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@4"></script>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section><h1>Data Visualization wtih Altair</h1>
+					<h2>Survey Data Case Study</h2>
+				</section>
+				<section>
+					<pre><code>
+alt.Chart(datasaurus).mark_point().encode(
+	x = 'x:Q',
+	y = 'y:Q',
+).transform_filter(alt.datum.dataset == 'dino')
+					</code></pre>
+				</section>
+				<section>
+					<div id='slide1'></div>
+				</section>
 			</div>
 		</div>
 
 		<script src="js/reveal.js"></script>
+
+	<script type="text/javascript">
+		var spec = 'slide1.json';
+		vegaEmbed('#slide1', spec).then(function(result) {}).catch(console.error);
+	</script>
 
 		<script>
 			// More info about config & dependencies:
