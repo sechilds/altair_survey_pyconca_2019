@@ -37,5 +37,5 @@ combos = (diverging_scale_data(df, group_fields = list(i)) for i in all_combinat
 combos_data = pd.concat(combos, axis = 0, sort = False)
 combos_data = combos_data.fillna('All')
 
-combos_data.to_csv('div_scale_data.csv')
+combos_data.to_csv('data/diverging_bar_chart_data.csv')
 
