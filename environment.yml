@@ -1,0 +1,24 @@
+name: pycon_canada_2019
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pandas
+  - numpy
+  - ipython
+  - ipykernel
+  - nb_conda
+  - nb_conda_kernels
+  - jupyter_core
+  - jupyterlab
+  - jupyter_contrib_nbextensions
+  - altair
+  - vega_datasets
+  - vega  
+  - pyreadstat
+  - jinja2
+  - rise
+  - xlrd
+  - openpyxl
+  - pygments
+

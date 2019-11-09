@@ -83,6 +83,9 @@ alt.Chart(datasaurus).mark_point().encode(
 					<section>
 						<div id='unique_count3'></div>
 					</section>
+					<section>
+						<div id='div_bar1'></div>
+					</section>
 
 
 			</div>
@@ -128,6 +131,10 @@ vegaEmbed('#big_dino1', spec, opt).then(function(result) {}).catch(console.error
 	<script type="text/javascript">
 		var spec = 'unique_count3.json';
 		vegaEmbed('#unique_count3', spec, opt).then(function(result) {}).catch(console.error);
+	</script>
+	<script type="text/javascript">
+		var spec = 'div_bar1.json';
+		vegaEmbed('#div_bar1', spec, opt).then(function(result) {}).catch(console.error);
 	</script>
 		<script>
 			// More info about config & dependencies:
