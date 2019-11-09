@@ -49,7 +49,20 @@ alt.Chart(datasaurus).mark_point().encode(
 
 	<script type="text/javascript">
 		var spec = 'slide1.json';
-		vegaEmbed('#slide1', spec).then(function(result) {}).catch(console.error);
+		var theme = {
+			range: {
+				category: {
+					scheme: "dark2"
+				}
+			}
+		};
+		var opt = {theme: 'dark',
+			       renderer: 'svg',
+			       tooltip: false,
+			       hover: false,
+			       actions: false,
+			config: {"range": {"category": {"scheme": "dark2"}}}};
+vegaEmbed('#slide1', spec, opt).then(function(result) {}).catch(console.error);
 	</script>
 
 		<script>
