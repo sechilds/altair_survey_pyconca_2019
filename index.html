@@ -41,6 +41,9 @@
 					<h2>Survey Data Case Study</h2>
 				</section>
 				<section>
+					<div id="anscombe_all"></div>
+				</section>
+				<section>
 					<pre><code class='python'>
 alt.Chart(datasaurus).mark_point().encode(
 	x = 'x:Q',
@@ -97,7 +100,12 @@ vegaEmbed('#big_dino1', spec, opt).then(function(result) {}).catch(console.error
 
 	<script type="text/javascript">
 		var spec = 'small_dino1.json';
-		vegaEmbed('#big_dino1', spec, opt).then(function(result) {}).catch(console.error);
+		vegaEmbed('#small_dino1', spec, opt).then(function(result) {}).catch(console.error);
+	</script>
+
+	<script type="text/javascript">
+		var spec = 'anscombe_all.json';
+		vegaEmbed('#anscombe_all', spec, opt).then(function(result) {}).catch(console.error);
 	</script>
 
 		<script>
