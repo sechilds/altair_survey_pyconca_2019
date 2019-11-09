@@ -1,16 +1,6 @@
 import pandas as pd
 import altair as alt
 
-def my_theme():
-    return {
-            'config': {
-                'range': {'category': {'scheme': 'dark2'}}
-            }
-        }
-
-alt.themes.register('my_theme', my_theme)
-alt.themes.enable('my_theme')
-
 datasaurus = pd.read_csv('data/DataSaurusDozen.tsv', delimiter = '\t')
 
 alt.Chart(datasaurus[datasaurus.dataset == 'dino']).mark_point(color="#1b9e77").encode(
@@ -24,4 +14,4 @@ alt.Chart(datasaurus[datasaurus.dataset == 'dino']).mark_point(color="#1b9e77").
 ).properties(
     height = 600,
     width = 600
-).save('slide1.json')
+).save('big_dino1.json')
