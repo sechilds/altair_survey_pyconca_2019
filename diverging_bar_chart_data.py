@@ -27,7 +27,7 @@ def diverging_scale_data(df, group_fields = []):
 
 def all_combinations(any_list):
     return chain.from_iterable(
-            combinatiosn(any_list, i) for i in range(len(any_list) +1))
+            combinations(any_list, i) for i in range(len(any_list) +1))
 
 filters = ['Gender', 'Customer Type', 'Type of Travel', 'Class']
 
