@@ -44,6 +44,9 @@
 					<div id="anscombe_all"></div>
 				</section>
 				<section>
+					<div id="datasaurus_all"</div>
+				</section>
+				<section>
 					<pre><code class='python'>
 alt.Chart(datasaurus).mark_point().encode(
 	x = 'x:Q',
@@ -57,20 +60,20 @@ alt.Chart(datasaurus).mark_point().encode(
 				<section>
 					<div class="container">
 						<div class = "col">
-					<pre><code class='python'>
+					<pre><code class='python' data-trim>
 (alt.Chart(datasaurus)
   .mark_point()
   .encode(
 	x = 'x:Q',
 	y = 'y:Q',
 ).transform_filter(
-  alt.datum.dataset == 'dino')
+  alt.datum.dataset
+    == 'dino')
 )
 					</code></pre>
 						</div>
 						<div class="col">
 						<div id='small_dino1'></div>
-							Column 2 content
 						</div>
 					</div>
 					</section>
@@ -141,6 +144,11 @@ vegaEmbed('#big_dino1', spec, opt).then(function(result) {}).catch(console.error
 	<script type="text/javascript">
 		var spec = 'anscombe_all.json';
 		vegaEmbed('#anscombe_all', spec, opt).then(function(result) {}).catch(console.error);
+	</script>
+
+	<script type="text/javascript">
+		var spec = 'datasaurus_all.json';
+		vegaEmbed('#datasaurus_all', spec, opt).then(function(result) {}).catch(console.error);
 	</script>
 
 	<script type="text/javascript">
