@@ -17,9 +17,16 @@ travel_type_selection = alt.selection_single(bind=travel_type_dropdown, fields=[
 alt.Chart(df).mark_bar().encode(
         x = 'start_percent:Q',
         x2 = 'end_percent:Q',
-        y = alt.Y('field_name:N', sort = alt.EncodingSortField(field = 'percent_positive', op = 'mean', order = 'descending')),
+        y = alt.Y('field_name:N', sort = alt.EncodingSortField(field = 'percent_positive', op = 'min', order = 'ascending')),
         color = alt.Color('response:N', scale = alt.Scale(scheme = 'dark2'))
-).transform_filter(gender_selection).transform_filter(class_selection).transform_filter(customer_type_selection
-    ).transform_filter(travel_type_selection).save('dashboard1.json')
+).add_selection(
+        gender_selection,
+        class_selection,
+        customer_type_selection,
+        travel_type_selection).transform_filter(
+        gender_selection).transform_filter(
+        class_selection).transform_filter(
+        customer_type_selection).transform_filter(
+        travel_type_selection).save('dashboard1.json')
 
 

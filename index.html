@@ -101,6 +101,9 @@ alt.Chart(datasaurus).mark_point().encode(
 					<section>
 						<div id='div_bar6'></div>
 					</section>
+					<section>
+						<div id='dashboard1'></div>
+					</section>
 
 
 			</div>
@@ -121,6 +124,11 @@ alt.Chart(datasaurus).mark_point().encode(
 			       renderer: 'svg',
 			       tooltip: false,
 			       hover: false,
+				   actions: false}
+		var opt2 = {theme: 'dark',
+			       renderer: 'svg',
+			       tooltip: false,
+			       hover: true,
 				   actions: false}
 vegaEmbed('#big_dino1', spec, opt).then(function(result) {}).catch(console.error);
 	</script>
@@ -170,6 +178,10 @@ vegaEmbed('#big_dino1', spec, opt).then(function(result) {}).catch(console.error
 	<script type="text/javascript">
 		var spec = 'div_bar6.json';
 		vegaEmbed('#div_bar6', spec, opt).then(function(result) {}).catch(console.error);
+	</script>
+	<script type="text/javascript">
+		var spec = 'dashboard1.json';
+		vegaEmbed('#dashboard1', spec, opt2).then(function(result) {}).catch(console.error);
 	</script>
 		<script>
 			// More info about config & dependencies:
