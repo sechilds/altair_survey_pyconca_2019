@@ -4,10 +4,10 @@ import altair as alt
 
 df = pd.read_csv('data/diverging_bar_chart_data.csv')
 
-gender_radio = alt.binding_radio(options = list(df['Gender'].unique()))
-class_dropdown = alt.binding_select(options = list(df['Class'].unique()))
-customer_type_dropdown = alt.binding_select(options = list(df['Customer Type'].unique()))
-travel_type_dropdown = alt.binding_select(options = list(df['Type of Travel'].unique()))
+gender_radio = alt.binding_radio(options = list(df['Gender'].unique()), name = 'Gender')
+class_dropdown = alt.binding_select(options = list(df['Class'].unique()), name = 'Class')
+customer_type_dropdown = alt.binding_select(options = list(df['Customer Type'].unique()), name = 'Customer Type')
+travel_type_dropdown = alt.binding_select(options = list(df['Type of Travel'].unique()), name = 'Type of Travel')
 
 gender_selection = alt.selection_single(bind=gender_radio, fields=['Gender'], init={'Gender': 'Female'})
 class_selection = alt.selection_single(bind=class_dropdown, fields=['Class'], init={'Class': 'Eco'})
