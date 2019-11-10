@@ -114,6 +114,16 @@ alt.Chart(datasaurus).mark_point().encode(
 					</div>
 					</section>
 					<section>
+						<pre><code class='python' data-trim>
+uc = df.nunique().reset_index()
+uc.columns = ['field', 'count']
+alt.Chart(uc).mark_bar().encode(
+	y='field:N',
+	x='count:Q'
+)
+						</code></pre>
+					</section>
+					<section>
 						<div id='unique_count1'>,/div>
 					</section>
 					<section>

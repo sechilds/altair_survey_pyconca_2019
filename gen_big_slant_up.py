@@ -3,7 +3,7 @@ import altair as alt
 
 datasaurus = pd.read_csv('data/DataSaurusDozen.tsv', delimiter = '\t')
 
-alt.Chart(datasaurus[datasaurus.dataset == 'dino']).mark_point(color="#1b9e77").encode(
+alt.Chart(datasaurus[datasaurus.dataset == 'slant_up']).mark_point(color="#1b9e77").encode(
     x = 'x:Q',
     y = 'y:Q',
     size = alt.value(90),
@@ -14,4 +14,4 @@ alt.Chart(datasaurus[datasaurus.dataset == 'dino']).mark_point(color="#1b9e77").
 ).properties(
     height = 600,
     width = 600
-).save('big_dino1.json')
+).save('big_slant_up.json')
