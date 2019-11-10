@@ -41,6 +41,9 @@
 					<h2>Survey Data Case Study</h2>
 				</section>
 				<section>
+					<div id='interval_selection'></div>
+				</section>
+				<section>
 					<div id="anscombe_all"></div>
 				</section>
 				<section>
@@ -125,6 +128,14 @@ alt.Chart(uc).mark_bar().encode(
 					</section>
 					<section>
 						<div id='unique_count1'>,/div>
+					</section>
+					<section>
+						<pre><code class='python' data-trim>
+alt.Chart(uc).mark_bar().encode(
+	y='field:N',
+	x='count:Q'
+).transform_filter(alt.datum.count < 1000)
+						</code></pre>
 					</section>
 					<section>
 						<div id='unique_count2'></div>
@@ -292,6 +303,10 @@ vegaEmbed('#big_dino1', spec, opt).then(function(result) {}).catch(console.error
 	<script type="text/javascript">
 		var spec = 'div_bar6.json';
 		vegaEmbed('#div_bar6', spec, opt).then(function(result) {}).catch(console.error);
+	</script>
+	<script type="text/javascript">
+		var spec = 'interval_selection.json';
+		vegaEmbed('#interval_selection', spec, opt2).then(function(result) {}).catch(console.error);
 	</script>
 	<script type="text/javascript">
 		var spec = 'dashboard1.json';

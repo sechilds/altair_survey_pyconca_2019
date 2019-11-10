@@ -8,7 +8,7 @@ uc.columns = ['field', 'count']
 alt.Chart(uc).mark_bar().encode(
         y=alt.Y('field:N',
             sort=alt.EncodingSortField(field='count', order = 'descending'),
-            axis=alt.Axis(labelPadding=25, labelLimit=350, titlePadding=50)),
+            axis=alt.Axis(labelPadding=25, labelLimit=350, titlePadding=75)),
         x='count:Q'
 ).configure_axis(
         labelFontSize = 24,
