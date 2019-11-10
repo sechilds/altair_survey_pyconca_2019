@@ -44,6 +44,9 @@
 					<div id='interval_selection'></div>
 				</section>
 				<section>
+					<div id='selection_histogram'></div>
+				</section>
+				<section>
 					<div id="anscombe_all"></div>
 				</section>
 				<section>
@@ -307,6 +310,10 @@ vegaEmbed('#big_dino1', spec, opt).then(function(result) {}).catch(console.error
 	<script type="text/javascript">
 		var spec = 'interval_selection.json';
 		vegaEmbed('#interval_selection', spec, opt2).then(function(result) {}).catch(console.error);
+	</script>
+	<script type="text/javascript">
+		var spec = 'selection_histogram.json';
+		vegaEmbed('#selection_histogram', spec, opt2).then(function(result) {}).catch(console.error);
 	</script>
 	<script type="text/javascript">
 		var spec = 'dashboard1.json';
