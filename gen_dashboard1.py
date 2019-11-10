@@ -9,10 +9,10 @@ class_dropdown = alt.binding_select(options = list(df['Class'].unique()))
 customer_type_dropdown = alt.binding_select(options = list(df['Customer Type'].unique()))
 travel_type_dropdown = alt.binding_select(options = list(df['Type of Travel'].unique()))
 
-gender_selection = alt.selection_single(bind=gender_radio, fields=['Gender'])
-class_selection = alt.selection_single(bind=class_dropdown, fields=['Class'])
-customer_type_selection = alt.selection_single(bind=customer_type_dropdown, fields=['Customer Type'])
-travel_type_selection = alt.selection_single(bind=travel_type_dropdown, fields=['Type of Travel'])
+gender_selection = alt.selection_single(bind=gender_radio, fields=['Gender'], init={'Gender': 'Female'})
+class_selection = alt.selection_single(bind=class_dropdown, fields=['Class'], init={'Class': 'Eco'})
+customer_type_selection = alt.selection_single(bind=customer_type_dropdown, fields=['Customer Type'], init={'Customer Type': 'All'})
+travel_type_selection = alt.selection_single(bind=travel_type_dropdown, fields=['Type of Travel'], init={'Type of Travel': 'All'})
 
 alt.Chart(df).mark_bar().encode(
         x = 'start_percent:Q',
