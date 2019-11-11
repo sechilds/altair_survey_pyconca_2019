@@ -16,5 +16,11 @@ alt.Chart(df).mark_bar().encode(
         width = 400
 ).facet(
     row = 'field_name:N'
+).configure_axis(
+        labelFontSize = axis_label_font_size,
+        titleFontSize = axis_title_font_size2
+).configure_header(
+        labelFontSize = axis_label_font_size,
+        titleFontSize = axis_title_font_size
 ).save('div_bar4.json')
 
