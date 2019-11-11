@@ -377,9 +377,142 @@ alt.Chart(uc).mark_bar().encode(
 							</aside>
 					</section>
 					<section>
+						<div id='unique_count1'>,/div>
+					</section>
+					<section>
 						<pre><code class='python' data-trim>
+alt.Chart(uc).mark_bar().encode(
+	y='field:N',
+	x='count:Q'
+).transform_filter(alt.datum.count < 1000)
+						</code></pre>
+					</section>
+					<section>
+						<div id='unique_count2'></div>
+					</section>
+					<section>
+						<div id='unique_count3'></div>
+					</section>
+					</section>
+					<section>
+					<section>
+						<table border="1" class="dataframe" style="font-size: 25px;">
+							  <thead>
+								<tr style="text-align: right;">
+								  <th></th>
+								  <th>id</th>
+								  <th>satisfaction_v2</th>
+								  <th>Gender</th>
+								  <th>...</th>
+								  <th>Online boarding</th>
+								  <th>Departure Delay in Minutes</th>
+								  <th>Arrival Delay in Minutes</th>
+								</tr>
+							  </thead>
+							  <tbody>
+								<tr>
+								  <th>0</th>
+								  <td>11112</td>
+								  <td>satisfied</td>
+								  <td>Female</td>
+								  <td>...</td>
+								  <td>2</td>
+								  <td>0</td>
+								  <td>0.0</td>
+								</tr>
+								<tr>
+								  <th>1</th>
+								  <td>110278</td>
+								  <td>satisfied</td>
+								  <td>Male</td>
+								  <td>...</td>
+								  <td>2</td>
+								  <td>310</td>
+								  <td>305.0</td>
+								</tr>
+								<tr>
+								  <th>2</th>
+								  <td>103199</td>
+								  <td>satisfied</td>
+								  <td>Female</td>
+								  <td>...</td>
+								  <td>2</td>
+								  <td>0</td>
+								  <td>0.0</td>
+								</tr>
+								<tr>
+								  <th>3</th>
+								  <td>47462</td>
+								  <td>satisfied</td>
+								  <td>Female</td>
+								  <td>...</td>
+								  <td>3</td>
+								  <td>0</td>
+								  <td>0.0</td>
+								</tr>
+								<tr>
+								  <th>...</th>
+								  <td>...</td>
+								  <td>...</td>
+								  <td>...</td>
+								  <td>...</td>
+								  <td>...</td>
+								  <td>...</td>
+								  <td>...</td>
+								</tr>
+								<tr>
+								  <th>129876</th>
+								  <td>97768</td>
+								  <td>neutral or dissatisfied</td>
+								  <td>Male</td>
+								  <td>...</td>
+								  <td>1</td>
+								  <td>174</td>
+								  <td>172.0</td>
+								</tr>
+								<tr>
+								  <th>129877</th>
+								  <td>125368</td>
+								  <td>neutral or dissatisfied</td>
+								  <td>Male</td>
+								  <td>...</td>
+								  <td>2</td>
+								  <td>155</td>
+								  <td>163.0</td>
+								</tr>
+								<tr>
+								  <th>129878</th>
+								  <td>251</td>
+								  <td>neutral or dissatisfied</td>
+								  <td>Male</td>
+								  <td>...</td>
+								  <td>2</td>
+								  <td>193</td>
+								  <td>205.0</td>
+								</tr>
+								<tr>
+								  <th>129879</th>
+								  <td>84566</td>
+								  <td>neutral or dissatisfied</td>
+								  <td>Female</td>
+								  <td>...</td>
+								  <td>3</td>
+								  <td>185</td>
+								  <td>186.0</td>
+								</tr>
+							  </tbody>
+							</table>
+							<aside class="notes">
+								Survey data in it's raw form.
+								Row are individual respondents.
+								Columns are questions or characteritics of
+								the respondent.
+							</aside>
+					</section>
+					<section>
+						<pre><code class='python' data-trim data-noescape>
 long_data = (df.set_index('id')
-  .stack()
+  <mark>.stack()</mark>
   .reset_index()
   .pipe(setcols,
      cols = ['id',
@@ -388,12 +521,7 @@ long_data = (df.set_index('id')
   .set_index('id')
 )
 						</code></pre>
-						<aside class="notes">
-							We transform the data with <code>stack</code>.
-						</aside>
-					</section>
-					<section>
-						<pre><code class='python' data-trim>
+						<pre class = 'fragment'><code class='python' data-trim>
 long_data = pd.merge(long_data,
   df,
   how = 'inner',
@@ -401,6 +529,7 @@ long_data = pd.merge(long_data,
   right_index = True)
 					 	</code></pre>
 						<aside class="notes">
+							We transform the data with <code>stack</code>.
 							We merge in the original dataset so
 							we now have all answers and characteristics
 							available to fitler on.
@@ -522,23 +651,6 @@ long_data = pd.merge(long_data,
 					</section>
 					</section>
 
-					<section>
-						<div id='unique_count1'>,/div>
-					</section>
-					<section>
-						<pre><code class='python' data-trim>
-alt.Chart(uc).mark_bar().encode(
-	y='field:N',
-	x='count:Q'
-).transform_filter(alt.datum.count < 1000)
-						</code></pre>
-					</section>
-					<section>
-						<div id='unique_count2'></div>
-					</section>
-					<section>
-						<div id='unique_count3'></div>
-					</section>
 					<section>
 						<div id='div_bar1'></div>
 					</section>
