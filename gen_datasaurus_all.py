@@ -1,5 +1,6 @@
 import pandas as pd
 import altair as alt
+from config import color_scale_scheme, axis_title_font_size, axis_label_font_size, axis_title_font_size2
 
 datasaurus = pd.read_csv('data/DataSaurusDozen.tsv', delimiter = '\t')
 
@@ -15,5 +16,13 @@ alt.Chart(datasaurus).mark_point().encode(
     stroke = alt.Stroke('dataset:N',
         scale = alt.Scale(scheme = 'dark2'))
     ).properties(
-            height = 150,
-            width = 150).facet('dataset:N', columns = 5).save('datasaurus_all.json')
+            height = 120,
+            width = 120
+    ) .facet('dataset:N', columns = 5
+    ).configure_axis(
+            titleFontSize = axis_title_font_size,
+            labelFontSize = axis_label_font_size
+    ).configure_header(
+            titleFontSize = axis_title_font_size2,
+            labelFontSize = axis_label_font_size
+    ).save('datasaurus_all.json')
