@@ -4,6 +4,9 @@ all : ${charts}
 
 data : data/long_data.csv data/response_data1.csv
 
+serve :
+	npm start
+
 ${charts}: %.json: gen_%.py
 	python $<
 
