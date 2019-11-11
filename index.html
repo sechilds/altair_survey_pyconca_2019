@@ -252,16 +252,6 @@
 					</section>
 				</section>
 					<section>
-						<pre><code class='python' data-trim>
-uc = df.nunique().reset_index()
-uc.columns = ['field', 'count']
-alt.Chart(uc).mark_bar().encode(
-	y='field:N',
-	x='count:Q'
-)
-						</code></pre>
-					</section>
-					<section>
 					<section>
 						<table border="1" class="dataframe" style="font-size: 25px;">
 							  <thead>
@@ -377,6 +367,16 @@ alt.Chart(uc).mark_bar().encode(
 							</aside>
 					</section>
 					<section>
+						<pre><code class='python' data-trim>
+uc = df.nunique().reset_index()
+uc.columns = ['field', 'count']
+alt.Chart(uc).mark_bar().encode(
+	y='field:N',
+	x='count:Q'
+)
+						</code></pre>
+					</section>
+					<section>
 						<div id='unique_count1'>,/div>
 					</section>
 					<section>
@@ -389,6 +389,14 @@ alt.Chart(uc).mark_bar().encode(
 					</section>
 					<section>
 						<div id='unique_count2'></div>
+					</section>
+					<section>
+						<pre><code class='python' data-trim>
+alt.Chart(uc).mark_bar().encode(
+	y='field:N',
+	x='count:Q'
+).transform_filter(alt.datum.count < 10)
+						</code></pre>
 					</section>
 					<section>
 						<div id='unique_count3'></div>
