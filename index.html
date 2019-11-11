@@ -69,25 +69,48 @@
 				</section>
 				<section>
 					<div id="anscombe_all"></div>
+					<aside class="notes">
+						Anscome's Quartet: All four of these datasets have the
+						same mean of x and y as well as the same relationship
+						between x and y.
+					</aside>
 				</section>
 				<section>
 					<section>
 						<div id='big_bullseye'></div>
+						<aside class="notes">
+							All these datasets have the same mean of x and y.
+						</aside>
 					</section>
 					<section>
 						<div id='big_star'></div>
+						<aside class="notes">
+							All these datasets have the same mean of x and y.
+						</aside>
 					</section>
 					<section>
 						<div id='big_x_shape'></div>
+						<aside class="notes">
+							All these datasets have the same mean of x and y.
+						</aside>
 					</section>
 					<section>
 						<div id='big_dino1'></div>
+						<aside class="notes">
+							All these datasets have the same mean of x and y.
+						</aside>
 					</section>
 					<section>
 						<div id="datasaurus_all"</div>
+						<aside class="notes">
+							All these datasets have the same mean of x and y.
+							This is all the datasets.
+							Note the way we can facet the data.
+						</aside>
 					</section>
 				</section>
 				</section>
+				<section>
 				<section>
 					<div class="container">
 						<div class = "col">
@@ -107,7 +130,127 @@
 						<div id='small_dino1'></div>
 						</div>
 					</div>
+					<aside class="notes">
+						Altair follows the <em>Grammer of Graphics</em> approach.
+						This goes back to Leland Wilkinson's 1999 book of the
+						same name. There's a second edition in 2005.
+						The book provides a framework for displaying graphics.
+						Hadley Wickham used it for ggplot2 in the R world.
+					</aside>
 					</section>
+				<section>
+					<div class="container">
+						<div class = "col">
+					<pre><code class='python' data-trim data-noescape>
+(alt.Chart(<mark>datasaurus</mark>)
+  .mark_point()
+  .encode(
+	x = 'x:Q',
+	y = 'y:Q',
+).transform_filter(
+  alt.datum.dataset
+    == 'dino')
+)
+					</code></pre>
+						</div>
+						<div class="col">
+						<div id='small_dino1_1'></div>
+						</div>
+					</div>
+					<aside class="notes">
+						Data
+					</aside>
+					</section>
+				<section>
+					<div class="container">
+						<div class = "col">
+					<pre><code class='python' data-trim data-noescape>
+(alt.Chart(datasaurus)
+  <mark>.mark_point()</mark>
+  .encode(
+	x = 'x:Q',
+	y = 'y:Q',
+).transform_filter(
+  alt.datum.dataset
+    == 'dino')
+)
+					</code></pre>
+						</div>
+						<div class="col">
+						<div id='small_dino1_2'></div>
+						</div>
+					</div>
+					<aside class="notes">
+						Mark - area, bar, circle, geoshape, line, point, rect,
+						rule, square, text, tick
+					</aside>
+					</section>
+				<section>
+					<div class="container">
+						<div class = "col">
+					<pre><code class='python' data-trim data-noescape>
+(alt.Chart(datasaurus)
+  .mark_point()
+  .encode(
+	<mark>x = 'x:Q',</mark>
+	<mark>y = 'y:Q',</mark>
+).transform_filter(
+  alt.datum.dataset
+    == 'dino')
+)
+					</code></pre>
+						</div>
+						<div class="col">
+						<div id='small_dino1_3'></div>
+						</div>
+					</div>
+					<aside class="notes">
+						Encoding channels - x, y, colour, size, text,
+						and more
+					</aside>
+					</section>
+				<section>
+					<div class="container">
+						<div class = "col">
+					<pre><code class='python' data-trim data-noescape>
+(alt.Chart(datasaurus)
+  .mark_point()
+  .encode(
+	x = 'x:Q',
+	y = 'y:Q',
+)<mark>.transform_filter(</mark>
+ <mark> alt.datum.dataset</mark>
+   <mark>== 'dino')</mark>
+)
+					</code></pre>
+						</div>
+						<div class="col">
+						<div id='small_dino1_4'></div>
+						</div>
+					</div>
+					<aside class="notes">
+						Transformation. In this case filtering
+						the dataset. There are lots of options for
+						transforming data.
+					</aside>
+					</section>
+					<section>
+						Binning
+					</section>
+					<section>
+						Means and other aggregations
+					</section>
+					<section>
+						Facets
+					</section>
+					<section>
+						Layers
+						<aside class="notes">
+							Mention interaction between facets
+							and layers.
+						</aside>
+					</section>
+				</section>
 					<section>
 						<pre><code class='python' data-trim>
 uc = df.nunique().reset_index()
@@ -249,7 +392,23 @@ vegaEmbed('#big_dino1', spec, opt).then(function(result) {}).catch(console.error
 		var spec = 'small_dino1.json';
 		vegaEmbed('#small_dino1', spec, opt).then(function(result) {}).catch(console.error);
 	</script>
+	<script type="text/javascript">
+		var spec = 'small_dino1.json';
+		vegaEmbed('#small_dino1_1', spec, opt).then(function(result) {}).catch(console.error);
+	</script>
 
+	<script type="text/javascript">
+		var spec = 'small_dino1.json';
+		vegaEmbed('#small_dino1_2', spec, opt).then(function(result) {}).catch(console.error);
+	</script>
+	<script type="text/javascript">
+		var spec = 'small_dino1.json';
+		vegaEmbed('#small_dino1_3', spec, opt).then(function(result) {}).catch(console.error);
+	</script>
+	<script type="text/javascript">
+		var spec = 'small_dino1.json';
+		vegaEmbed('#small_dino1_4', spec, opt).then(function(result) {}).catch(console.error);
+	</script>
 	<script type="text/javascript">
 		var spec = 'anscombe_all.json';
 		vegaEmbed('#anscombe_all', spec, opt).then(function(result) {}).catch(console.error);
