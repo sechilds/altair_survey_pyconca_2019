@@ -5,7 +5,7 @@ from config import color_scale_scheme, axis_label_font_size, axis_title_font_siz
 
 df = pd.read_csv('data/response_data1.csv')
 
-alt.Chart(df).mark_bar().encode(
+alt.Chart(df).mark_bar(size = 50).encode(
         x = 'start_percent2:Q',
         x2 = 'end_percent2:Q',
         fill = alt.Fill('response:N', scale = alt.Scale(scheme = color_scale_scheme))
