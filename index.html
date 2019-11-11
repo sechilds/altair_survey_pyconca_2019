@@ -662,7 +662,16 @@ long_data = pd.merge(long_data,
 					<section>
 						<div class = "container">
 							<div class = "col">
-								Bar 1
+								<pre><code class = "python" data-trim>
+alt.Chart(df).mark_bar(
+).encode(
+  x = 'count:Q',
+  y = 'response:N',
+  fill = 'response:N'
+).facet(
+  row = 'field_name:N'
+)
+								</pre></code>
 							</div>
 							<div class = "col">
 								<div id='div_bar1'></div>
@@ -671,7 +680,16 @@ long_data = pd.merge(long_data,
 					<section>
 						<div class = "container">
 							<div class = "col">
-								Bar2
+								<pre><code class = "python" data-trim>
+alt.Chart(df).mark_bar(
+).encode(
+  x = 'freq:Q',
+  y = 'response:N',
+  fill = 'response:N'
+).facet(
+  row = 'field_name:N'
+)
+								</pre></code>
 							</div>
 							<div class = "col"
 								<div id='div_bar2'></div>
@@ -680,7 +698,21 @@ long_data = pd.merge(long_data,
 					<section>
 						<div class = "container">
 							<div class = "col">
-								Bar 3
+								<pre><code class = "python" data-trim>
+df['end_percent'] = (
+  df.groupby('field_name')
+  ['freq'].cumsum()
+)
+
+alt.Chart(df).mark_bar(
+).encode(
+  x = 'end_precent:Q',
+  y = 'response:N',
+  fill = 'response:N'
+).facet(
+  row = 'field_name:N'
+)
+								</pre></code>
 							</div>
 							<div class = "col"
 								<div id='div_bar3'></div>
@@ -689,7 +721,23 @@ long_data = pd.merge(long_data,
 					<section>
 						<div class = "container">
 							<div class = "col">
-								Bar 4
+								<pre><code class = "python" data-trim>
+df['start_percent'] = (
+  df.groupby('field_name')
+  ['end_percent'].shift(1).
+  fillna(0)
+)
+
+alt.Chart(df).mark_bar(
+).encode(
+  x = 'start_percent:Q',
+  x2 = 'end_precent:Q',
+  y = 'response:N',
+  fill = 'response:N'
+).facet(
+  row = 'field_name:N'
+)
+								</pre></code>
 							</div>
 							<div class = "col"
 								<div id='div_bar4'></div>
@@ -698,7 +746,16 @@ long_data = pd.merge(long_data,
 					<section>
 						<div class = "container">
 							<div class = "col">
-								Bar 5
+								<pre><code class = "python" data-trim>
+alt.Chart(df).mark_bar(
+).encode(
+  x = 'start_percent:Q',
+  x2 = 'end_precent:Q',
+  fill = 'response:N'
+).facet(
+  row = 'field_name:N'
+)
+								</pre></code>
 							</div>
 							<div class = "col"
 								<div id='div_bar5'></div>
@@ -707,7 +764,31 @@ long_data = pd.merge(long_data,
 					<section>
 						<div class = "container">
 							<div class = "col">
-								Bar 6
+								<pre><code class = "python" data-trim>
+(df['negative] = 
+  df['response']
+  .apply(lambda x :
+    True if x < 3
+    else False)
+)
+(starting_point = 
+  df[df.negative]
+  .groupby('field_name')
+    ['freq'].sum())
+
+(res[['start_percent',
+     'end_percent']] -
+  starting_point)
+
+alt.Chart(df).mark_bar(
+).encode(
+  x = 'start_percent:Q',
+  x2 = 'end_precent:Q',
+  fill = 'response:N'
+).facet(
+  row = 'field_name:N'
+)
+								</pre></code>
 							</div>
 							<div class = "col"
 								<div id='div_bar6'></div>
