@@ -39,7 +39,11 @@ level1 = base.mark_bar().encode(
 
 level2 = base.mark_text().encode(
         x = 'midpoint_percent:Q',
-        text = alt.Text('freq:Q', format = '.2%')
+        text = alt.Text('freq:Q', format = '.2%'),
+        opacity = alt.condition(
+            alt.datum.freq . 0.2,
+            alt.value(1),
+            alt.value(0))
 )
 
 (level1 + level2
