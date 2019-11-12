@@ -2,6 +2,8 @@
 import pandas as pd
 import altair as alt
 
+from config import color_scale_scheme, axis_label_font_size, axis_title_font_size, axis_title_font_size2
+
 df = pd.read_csv('data/diverging_bar_chart_data.csv')
 
 gender_radio = alt.binding_radio(options = list(df['Gender'].unique()), name = 'Gender')
@@ -30,7 +32,7 @@ travel_type_selection
 level1 = base.mark_bar().encode(
         x = 'start_percent:Q',
         x2 = 'end_percent:Q',
-        color = alt.Color('response:N', scale = alt.Scale(scheme = 'dark2'))
+        color = alt.Color('response:N', scale = alt.Scale(scheme = color_scale_scheme))
 ).add_selection(
         gender_selection,
         class_selection,
@@ -41,12 +43,15 @@ level2 = base.mark_text().encode(
         x = 'midpoint_percent:Q',
         text = alt.Text('freq:Q', format = '.2%'),
         opacity = alt.condition(
-            alt.datum.freq . 0.2,
+            alt.datum.freq > 0.2,
             alt.value(1),
             alt.value(0))
 )
 
 (level1 + level2
+).configure_axis(
+        labelFontSize = axis_label_font_size,
+        titleFontSize = axis_title_font_size
 ).save('dashboard2.json')
 
 
