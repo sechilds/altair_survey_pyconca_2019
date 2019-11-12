@@ -896,8 +896,9 @@ alt.Chart(df).mark_bar(
 					<section>
 						<div id='dashboard1'></div>
 					</section>
-
-
+					<section>
+						<div id='dashboard2'></div>
+					</section>
 			</div>
 		</div>
 
@@ -1063,6 +1064,10 @@ vegaEmbed('#big_dino1', spec, opt).then(function(result) {}).catch(console.error
 	<script type="text/javascript">
 		var spec = 'dashboard1.json';
 		vegaEmbed('#dashboard1', spec, opt2).then(function(result) {}).catch(console.error);
+	</script>
+	<script type="text/javascript">
+		var spec = 'dashboard2.json';
+		vegaEmbed('#dashboard2', spec, opt2).then(function(result) {}).catch(console.error);
 	</script>
 		<script>
 			// More info about config & dependencies:
