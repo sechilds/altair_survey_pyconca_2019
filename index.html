@@ -100,6 +100,18 @@
 						<aside class="notes">
 							<h1>Solution: Data Visualization</h1>
 							Photo by Jason Coudriet on Unsplash
+
+							Data visualizaiton. NSSE dashboard got more people interested
+							It demos well. Interactive.
+							Handles many ad hoc requests.
+
+							Note: Can't include any actual York survey data here,
+							because of the way we collected it + research ethics.
+							You need to be careful presenting survey data.
+
+							I won't cover qualitative analysis - of the free
+							text part of surverys. But Python does a great job of
+							this!
 						</aside>
 					</section>
 					<section data-background-image='PIA04204.jpg'>
@@ -301,7 +313,43 @@
 						</aside>
 					</section>
 				</section>
+				<section>
 					<section>
+						<pre><code class="json">
+{"data": {"name": "data-525eaa47413d8b78972b8b2e3334f770"},
+ "mark": "point",
+ "encoding":
+   {"x": {"type": "quantitative", "field": "x"},
+    "y": {"type": "quantitative", "field": "y"}},
+ "transform": [{"filter": "(datum.dataset === 'dino')"}],
+ "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"
+}
+						</code></pre>
+					</section>
+					<section>
+						<pre> <code class="html">
+<div id='big_dino1'></div>
+						</code></pre>
+						<pre class = 'fragment'> <code class="javascript">
+var spec = 'big_dino1.json';
+vegaEmbed('#big_dino1', spec).then(
+  function(result) {}).catch(console.error);
+						</code></pre>
+					</section>
+					<section>
+						<pre> <code class="javascript">
+vegaEmbed('#big_dino1',
+  source={{ include_file('big_dino1.json') }}).then(
+  function(result) {}).catch(console.error);
+						</code></pre>
+						<aside class = "notes">
+							If you want to distribute your charts in a
+							single HTML file, you can use jinja2 to
+							embed the JSON directly in the web page.
+						</aside>
+					</section>
+				</section>
+				<section>
 					<section>
 						<table border="1" class="dataframe" style="font-size: 25px;">
 							  <thead>
