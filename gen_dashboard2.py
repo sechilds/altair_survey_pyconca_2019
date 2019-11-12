@@ -43,10 +43,6 @@ level2 = base.mark_text().encode(
 )
 
 (level1 + level2
-).add_selection(
-        gender_selection,
-        class_selection,
-        customer_type_selection,
 ).save('dashboard2.json')
 
 
