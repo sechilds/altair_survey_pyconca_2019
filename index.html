@@ -853,7 +853,27 @@ long_data = pd.merge(long_data,
 							</aside>
 					</section>
 					<section>
-						Aggregation
+						<pre><code class = "python big" data-trim>
+counts = df.groupby(['field_name', 'response'])['id'].count()
+freq = counts.groupby(level=0).apply(lambda x : x / float(s.sum()))
+counts = pd.concat([counts, freq], axis = 1)
+counts.columns = ['count', 'freq']
+counts.reset_index()
+						</code></pre>
+						<aside class = "notes">
+							<h1> Aggregation</h1>
+							We group first by field_name and response to
+							get the count of the responses.
+							The second group by calculates the percentage.
+							You can add additional fields to the groupby
+							to do the same process for subgroups.
+
+							You can also do other calculations - like
+							statistics. (Beyond the scope here.)
+						</aside>
+					</section>
+					<section>
+						Aggregated Table
 					</section>
 					</section>
 					<section>
