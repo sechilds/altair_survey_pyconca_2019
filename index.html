@@ -568,9 +568,9 @@ vegaEmbed('#big_dino1',
   function(result) {}).catch(console.error);
 						</code></pre>
 						<aside class = "notes">
-							If you want to distribute your charts in a
+							<p>If you want to distribute your charts in a
 							single HTML file, you can use jinja2 to
-							embed the JSON directly in the web page.
+							embed the JSON directly in the web page.</p>
 						</aside>
 					</section>
 				</section>
@@ -683,10 +683,15 @@ vegaEmbed('#big_dino1',
 							  </tbody>
 							</table>
 							<aside class="notes">
-								Survey data in it's raw form.
-								Row are individual respondents.
-								Columns are questions or characteritics of
-								the respondent.
+								<h1>Survey Data</h1>
+								<p>Now we turn to survey data.</p>
+								<ul>
+									<li>Survey data in it's raw form.</li>
+									<li>Row are individual respondents.</li>
+									<li>Columns are questions or characteritics of
+										the respondent.</li>
+									<li>Survey of airline customers.</li>
+								</ul>
 							</aside>
 					</section>
 					<section>
@@ -698,9 +703,25 @@ alt.Chart(uc).mark_bar().encode(
 	x='count:Q'
 )
 						</code></pre>
+						<aside class="notes">
+							<h1>Start to Visualize</h1>
+							<p>The first thing we to with our data is
+							to visualize it in various ways to learn a
+							bit about it.</p>
+							<br/>
+							<p>This gets the count of unique values for
+							each column, create that dataset and
+							then creates a bar chart.</p>
+						</aside>
 					</section>
 					<section>
 						<div id='unique_count1'>,/div>
+						<aside class="notes">
+							<p>Id, which is a unique identifier blows
+							out this chart. But this lets us see
+							right away that we have a unique identifier
+							and what it's name is.</p>
+						</aside>
 					</section>
 					<section>
 						<pre><code class='python big' data-trim>
@@ -709,9 +730,31 @@ alt.Chart(uc).mark_bar().encode(
 	x='count:Q'
 ).transform_filter(alt.datum.count < 1000)
 						</code></pre>
+						<aside class="notes">
+							<p>Now let's restrict our Chart to only
+							those variables with less than 1000
+							unique values. This is really easy to do
+							in Altair - you filter the data.<p>
+							<br/>
+							<p>The datum object lets you refer back
+							to the chart's data.</p>
+						</aside>
 					</section>
 					<section>
 						<div id='unique_count2'></div>
+						<aside class="notes">
+							<p>Now we see a few items with large
+							unique counts - Age and Duration of
+							Flight as well as delay times. That
+							probably indicates that they are
+							quantitative data.</p>
+							<br/>
+							<p>We can tell that this is probably
+							data taken from the airline and not
+							directly asked each customer. They
+							will know the birth date for each
+							customer + details about their flight.</p>
+						</aside>
 					</section>
 					<section>
 						<pre><code class='python big' data-trim>
@@ -720,9 +763,22 @@ alt.Chart(uc).mark_bar().encode(
 	x='count:Q'
 ).transform_filter(alt.datum.count < 10)
 						</code></pre>
+						<aside class="notes">
+							<p>Now let's reduce this to fields with
+							less than 10 unique values.</p>
+						</aside>
 					</section>
 					<section>
 						<div id='unique_count3'></div>
+						<aside class="notes">
+							<p>Now we can see a bunch of fields with
+							5 or 6 responses -- these are the scale
+							questions rating various aspects of the
+							flight.</p>
+							<br/>
+							<p>The rest are categorial variables,
+							characteristics of the traveller.</p>
+						</aside>
 					</section>
 					</section>
 					<section>
