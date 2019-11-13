@@ -1,8 +1,8 @@
 import altair as alt
-from vega_datasets import data
+import pandas as pd
 from config import dark2_colours
 
-source = data.sp500.url
+source = pd.read_csv('sp500.csv')
 
 brush = alt.selection(type='interval', encodings=['x'])
 
