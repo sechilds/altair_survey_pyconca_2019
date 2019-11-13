@@ -83,13 +83,10 @@
 								<li>People are busy and have a lot competing for their attention</li>
 								<li>If we generate a report - people aren't going to read it</li>
 								<li>Sits in a file drawer</li>
+								<li>Institutional knowledge spread out across campus.</li>
+								<li>survey data + instituional knowledge into action</li>
+								<li>no one pours through tables of survey results for fun</li>
 							</ul>
-							<p>I know survey design and data analysis. 
-							I have some institutional knowledge- but there is a
-							lot of knowledge spread out across our campuses.
-							How do you get people to combine the survey results
-							and their knowledge and turn it into action</p>
-							<p>No one will pour through tables of survey results- for fun.<p>
 						</aside>
 					</section>
 					<section data-background-image='jason-coudriet-eQux_nmDew0-unsplash.jpg'>
@@ -101,34 +98,85 @@
 						</div>
 						<aside class="notes">
 							<h1>Solution: Data Visualization</h1>
-							Photo by Jason Coudriet on Unsplash
-
-							Data visualizaiton. NSSE dashboard got more people interested
-							It demos well. Interactive.
-							Handles many ad hoc requests.
-
-							Note: Can't include any actual York survey data here,
-							because of the way we collected it + research ethics.
-							You need to be careful presenting survey data.
-
-							I won't cover qualitative analysis - of the free
-							text part of surverys. But Python does a great job of
-							this!
+						    <ul>
+								<li>NSSE Dashboard got more people interested.</li>
+								<li>Data viz demos well.</li>
+								<li>Covers many ad hoc requests.</li>
+							</ul>
+							<h2>Some Notes</h2>
+							<ul>
+								<li>No actual YorkU survey data in presentation.</li>
+								<li>Data collection and research ethics.</li>
+								<li>Always be careful presenting survey data.</li>
+								<li>Won't cover qualitative analysis.</li>
+								<li>Python handles text analysis well.</li>
+								<li>NLTK and spacy, wordcloud</li>
+							</ul>
+							<p>Photo by Jason Coudriet on Unsplash</p>
 						</aside>
 					</section>
 					<section data-background-image='PIA04204.jpg'>
+						<div style="height: 600px; width: 1200px;">
+							<a style="background-color:black;
+								position: absolute;
+								bottom: 4px;
+								left: 4px;
+								color:white;text-decoration:none;
+								padding:4px 6px;
+								font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;
+								font-size:12px;
+								font-weight:bold;
+								line-height:1.2;
+								display:inline-block;
+								border-radius:3px" href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA04204" target="_blank" rel="noopener noreferrer">
+									<span style="display:inline-block;padding:2px 3px">
+									<img src='nasa_logo.svg' height="20px" width="18px" style = 'border: none;'>
+									</span><span style="display:inline-block;padding:2px 3px">Image Courtesy NASA</span></a>
+						</div>
 						<aside class="notes">
 							<h1>Altair</h1>
-							Photo of Altair - courtesy of NASA.
+							<p>This is Altair, as seen from NASA's
+							Ultra High Resolution telescope system on
+							Palomar Mountain - just outside of San Diego.
+							Taken November 30, 1999.</p>
+
+							<p>Altair is the brightest start in the
+							constelation Aquila and a part of the
+							Summer Triangle with Vega and Deneb.</p>
+
+							<p>Altair is also a Python packaging
+							enabling the creation of data visualizations
+							using the Vega and Vega-Lite framework.</p>
+							
+							<p>Photo of Altair - courtesy of NASA.<p>
 						</aside>
 					</section>
 				</section>
 				<section>
 					<section>
 						<div id='interval_selection'></div>
+						<aside class="notes">
+							<h1>Altair Examples</h1>
+							<p>Taken from the example gallery on the
+							Altair website, which is a great way to learn
+							how to use Altair.</p>
+							<br/>
+							<p>Altair charts are <strong>interactive</strong>.
+							<ul>
+								<li>Make a selection and move it around.</li>
+								<li>Make a smaller selection to show dates.</li>
+							</ul>
+						</aside>
 					</section>
 					<section>
 						<div id='selection_histogram'></div>
+						<aside class="notes">
+							<h1>Chart Selection</h1>
+							<p>Another example from the website.
+							Selecting a part of one graph can filter another.</p>
+							<br/>
+							<p>Highlight a selection and move it around.</p>
+						</aside>
 					</section>
 				</section>
 				<section>
@@ -195,11 +243,15 @@
 						</div>
 					</div>
 					<aside class="notes">
-						Altair follows the <em>Grammer of Graphics</em> approach.
+						<h1>Grammer of Graphics: Via Altair</h1>
+						<p>Altair follows the <em>Grammer of Graphics</em> approach.
 						This goes back to Leland Wilkinson's 1999 book of the
 						same name. There's a second edition in 2005.
 						The book provides a framework for displaying graphics.
-						Hadley Wickham used it for ggplot2 in the R world.
+						Hadley Wickham used it for ggplot2 in the R world.</p>
+						<br/>
+						<p>We will walk through how it works using Altair
+						examples with code and charts.</p>
 					</aside>
 					</section>
 				<section>
@@ -222,7 +274,13 @@
 						</div>
 					</div>
 					<aside class="notes">
-						Data
+						<h1>Data</h1>
+						<p>The first component is the data.
+						This can be a pandas DataFrame, a file containing
+						JSON or another data format or a URL pointing to
+						data.</p>
+						<p>You can dynamically stream data into an Altair
+						visualization as long as you can serve it to a URL.</p>
 					</aside>
 					</section>
 				<section>
@@ -245,8 +303,24 @@
 						</div>
 					</div>
 					<aside class="notes">
-						Mark - area, bar, circle, geoshape, line, point, rect,
-						rule, square, text, tick
+						<h1>Marks</h1>
+						<p>There are several types of Marks in Altair.
+						They represent the data.</p>
+						<ul>
+							<li>area</li>
+							<li>bar</li>
+							<li>circle</li>
+							<li>geoshape</li>
+							<li>line</li>
+							<li>point</li>
+							<li>rect</li>
+							<li>rule</li>
+							<li>square</li>
+							<li>text</li>
+							<li>tick</li>
+						</ul>
+						<p>You an only have 1 type of mark per chart object.</p>
+						<p>That seems like a limitation, but wait...</p>
 					</aside>
 					</section>
 				<section>
@@ -269,8 +343,17 @@
 						</div>
 					</div>
 					<aside class="notes">
-						Encoding channels - x, y, colour, size, text,
-						and more
+						<h1>Encoding Channels</h1>
+						<p>This makes the link from the data to the mark.
+						These can be position (x, y) or other features
+						like colour, shape, size or even text.</p>
+						<br/>
+						<p>They can be associated with any variable in
+						the dataset or a calcuation.</p>
+						<br/>
+						<p>The Q's representative quantitative data and
+						will affect how the data is displayed. There is
+						also Nominal, Ordinal or temporal data.</p>
 					</aside>
 					</section>
 				<section>
@@ -293,15 +376,19 @@
 						</div>
 					</div>
 					<aside class="notes">
-						Transformation. In this case filtering
+						<h1>Transformation.</h1>
+						<p>In this case filtering
 						the dataset. There are lots of options for
-						transforming data.
+						transforming data.</p>
+						<br/>
+						<p>You can create new fields with a calculation,
+						aggregate data, group data by fields and more.</p>
 					</aside>
 					</section>
 					<section>
 					<div class="container">
 						<div class = "col">
-					<pre><code class='python big' data-trim>
+					<pre><code class='python big' data-trim data-noescape>
 from vega_datasets \
   import data
 
@@ -311,7 +398,7 @@ alt.Chart(movies
 ).mark_bar(
 ).encode(
   alt.X("IMDB_Rating:Q",
-    bin=True),
+	<mark>bin=True</mark>),
   y='count()',
 )
 					</code></pre>
@@ -321,13 +408,18 @@ alt.Chart(movies
 						</div>
 					</div>
 					<aside class="notes">
-						Histogram.
+						<h1>Binning</h1>
+						<p>One of the transformations in Altair. This is how
+						you create a Histogram.</p>
+						<br/>
+						<p>Note the alt.X() function. That wraps an encoding
+						channel to let you specify options.</p>
 					</aside>
 					</section>
 					<section>
 					<div class="container">
 						<div class = "col">
-					<pre><code class='python big' data-trim>
+					<pre><code class='python big' data-trim data-noescape>
 from vega_datasets \
   import data
 
@@ -337,7 +429,7 @@ alt.Chart(cars
 ).mark_bar(
 ).encode(
   y='Cylinders:O',
-  x='mean(Acceleration):Q'
+  x=<mark>'mean(Acceleration):Q'</mark>
 )
 					</code></pre>
 						</div>
@@ -346,23 +438,27 @@ alt.Chart(cars
 						</div>
 					</div>
 					<aside class="notes">
-						Histogram.
+						<h1>Aggregation</h1>
+						<p>Altair can take the mean across groups of
+						your data. Here it takes the mean acceleration
+						of the cars in this dataset, grouped by
+						the Cylinders.</p>
 					</aside>
 					</section>
 					<section>
 					<div class="container">
 						<div class = "col">
-					<pre><code class='python big' data-trim>
+					<pre><code class='python big' data-trim data-noescape>
 alt.Chart(datasaurus
 ).mark_point(
 ).encode(
   x='x:Q',
   y='y:Q',
   color='dataset:N',
-).facet(
-	'dataset:N',
-	columns = 2
-)
+).<mark>facet(</mark>
+	<mark>'dataset:N',</mark>
+	<mark>columns = 2</mark>
+<mark>)</mark>
 					</code></pre>
 						</div>
 						<div class="col">
@@ -370,13 +466,16 @@ alt.Chart(datasaurus
 						</div>
 					</div>
 					<aside class="notes">
-						Histogram.
+						<h1>Facets</h1>
+						<p>The grammer of graphics embraces small multiples and
+						lets you quickly generate graphs of subsets of the data.
+						This is a fast way to examine datasets.
 					</aside>
 					</section>
 					<section>
 					<div class="container">
 						<div class = "col">
-					<pre><code class='python big' data-trim>
+					<pre><code class='python big' data-trim data-noescape>
 source = data.movies.url
 
 heatmap = alt.Chart(source
@@ -397,7 +496,7 @@ heatmap = alt.Chart(source
    y='Rotten_Tomatoes_Rating:Q'
  )
 
- heatmap + points
+ <mark>heatmap + points</mark>
 					</code></pre>
 						</div>
 						<div class="col">
@@ -405,8 +504,15 @@ heatmap = alt.Chart(source
 						</div>
 					</div>
 					<aside class="notes">
-						Mention interaction between facets
-						and layers.
+						<h1>Layers</h1>
+						<p>Remember only one mark per chart. This is
+						how you get around that - by layering charts.</p>
+						<br/>
+						<p>These are layered on top of each other.
+						Later levels obscure earlier ones.</p>
+						<br/>
+						<p>Mention interaction between facets
+						and layers. Layer first then facet.</p>
 					</aside>
 					</section>
 				</section>
@@ -422,6 +528,17 @@ heatmap = alt.Chart(source
  "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json"
 }
 						</code></pre>
+						<aside class="notes">
+							<h1>How Altair Works</h1>
+							<p>Altair is built upon Vega-Lite, which
+							is a javascript library that renders
+							JSON into a chart. The Altair Chart object
+							produces that JSON, which looks like this.</p>
+							<br/>
+							<p>This will render automatially in a Jupyter
+							Notebook and it can be added to a web page.
+							</p>
+						</aside>
 					</section>
 					<section>
 						<pre> <code class="html big">
@@ -432,6 +549,17 @@ var spec = 'big_dino1.json';
 vegaEmbed('#big_dino1', spec).then(
   function(result) {}).catch(console.error);
 						</code></pre>
+						<aside class="notes">
+							<h1>Embed in a Web Page</h1>
+							<p>To insert a chart, you put a div where you want
+							the chart to be.</p>
+							<br/>
+							<p><strong>CLICK.</strong>
+							Now add this big of javascript to get vega to add
+							the chart (either a canvas or svg element) to that
+							div. You can load it from a file or specify the
+							JSON right there.</p>
+						</aside>
 					</section>
 					<section>
 						<pre> <code class="javascript big">
@@ -860,7 +988,9 @@ counts = pd.concat([counts, freq], axis = 1)
 counts.columns = ['count', 'freq']
 counts.reset_index()
 						</code></pre>
-						<pre><code class = "python big fragment" data-trim>
+					</section>
+					<section>
+						<pre><code class = "python big" data-trim>
 filters = ['Gender', 'Customer Type', 'Type of Travel', 'Class']
 						</code></pre>
 						<pre><code class = "python big fragment" data-trim>
