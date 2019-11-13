@@ -29,14 +29,16 @@
 		<style>
 			.container{
 				display: flex;
+				width: 1100px;
 			}
 			.col{
 				flex: 1;
 			}
-			code {
+			code.big {
 				overflow: visible !important;
 				overflow-x: visible !important;
-				overflow-x: visible !important;
+				overflow-y: visible !important;
+				background: transparent !important;
 		</style>
 
 		<div class="reveal">
@@ -176,7 +178,7 @@
 				<section>
 					<div class="container">
 						<div class = "col">
-					<pre><code class='python' data-trim>
+					<pre><code class='python big' data-trim>
 (alt.Chart(datasaurus)
   .mark_point()
   .encode(
@@ -203,7 +205,7 @@
 				<section>
 					<div class="container">
 						<div class = "col">
-					<pre><code class='python' data-trim data-noescape>
+					<pre><code class='python big' data-trim data-noescape>
 (alt.Chart(<mark>datasaurus</mark>)
   .mark_point()
   .encode(
@@ -226,7 +228,7 @@
 				<section>
 					<div class="container">
 						<div class = "col">
-					<pre><code class='python' data-trim data-noescape>
+					<pre><code class='python big' data-trim data-noescape>
 (alt.Chart(datasaurus)
   <mark>.mark_point()</mark>
   .encode(
@@ -250,7 +252,7 @@
 				<section>
 					<div class="container">
 						<div class = "col">
-					<pre><code class='python' data-trim data-noescape>
+					<pre><code class='python big' data-trim data-noescape>
 (alt.Chart(datasaurus)
   .mark_point()
   .encode(
@@ -274,7 +276,7 @@
 				<section>
 					<div class="container">
 						<div class = "col">
-					<pre><code class='python' data-trim data-noescape>
+					<pre><code class='python big' data-trim data-noescape>
 (alt.Chart(datasaurus)
   .mark_point()
   .encode(
@@ -297,25 +299,120 @@
 					</aside>
 					</section>
 					<section>
-						Binning
+					<div class="container">
+						<div class = "col">
+					<pre><code class='python big' data-trim>
+from vega_datasets \
+  import data
+
+movies = data.movies.url
+
+alt.Chart(movies
+).mark_bar(
+).encode(
+  alt.X("IMDB_Rating:Q",
+    bin=True),
+  y='count()',
+)
+					</code></pre>
+						</div>
+						<div class="col">
+						<div id='bin'></div>
+						</div>
+					</div>
+					<aside class="notes">
+						Histogram.
+					</aside>
 					</section>
 					<section>
-						Means and other aggregations
+					<div class="container">
+						<div class = "col">
+					<pre><code class='python big' data-trim>
+from vega_datasets \
+  import data
+
+cars = data.cars.url
+
+alt.Chart(cars
+).mark_bar(
+).encode(
+  y='Cylinders:O',
+  x='mean(Acceleration):Q'
+)
+					</code></pre>
+						</div>
+						<div class="col">
+						<div id='mean'></div>
+						</div>
+					</div>
+					<aside class="notes">
+						Histogram.
+					</aside>
 					</section>
 					<section>
-						Facets
+					<div class="container">
+						<div class = "col">
+					<pre><code class='python big' data-trim>
+alt.Chart(datasaurus
+).mark_point(
+).encode(
+  x='x:Q',
+  y='y:Q',
+  color='dataset:N',
+).facet(
+	'dataset:N',
+	columns = 2
+)
+					</code></pre>
+						</div>
+						<div class="col">
+						<div id='datasaurus_small'></div>
+						</div>
+					</div>
+					<aside class="notes">
+						Histogram.
+					</aside>
 					</section>
 					<section>
-						Layers
-						<aside class="notes">
-							Mention interaction between facets
-							and layers.
-						</aside>
+					<div class="container">
+						<div class = "col">
+					<pre><code class='python big' data-trim>
+source = data.movies.url
+
+heatmap = alt.Chart(source
+).mark_rect().encode(
+  alt.X('IMDB_Rating:Q',
+    bin=True),
+  alt.Y('Rotten_Tomatoes_Rating:Q',
+    bin=True),
+  alt.Color('count()')
+ )
+ 
+ points = alt.Chart(source
+ ).mark_circle(
+   color='white',
+   size=5,
+ ).encode(
+   x='IMDB_Rating:Q',
+   y='Rotten_Tomatoes_Rating:Q'
+ )
+
+ heatmap + points
+					</code></pre>
+						</div>
+						<div class="col">
+						<div id='layers'></div>
+						</div>
+					</div>
+					<aside class="notes">
+						Mention interaction between facets
+						and layers.
+					</aside>
 					</section>
 				</section>
 				<section>
 					<section>
-						<pre><code class="json">
+						<pre><code class="json big">
 {"data": {"name": "data-525eaa47413d8b78972b8b2e3334f770"},
  "mark": "point",
  "encoding":
@@ -327,17 +424,17 @@
 						</code></pre>
 					</section>
 					<section>
-						<pre> <code class="html">
+						<pre> <code class="html big">
 <div id='big_dino1'></div>
 						</code></pre>
-						<pre class = 'fragment'> <code class="javascript">
+						<pre class = 'fragment'> <code class="javascript big">
 var spec = 'big_dino1.json';
 vegaEmbed('#big_dino1', spec).then(
   function(result) {}).catch(console.error);
 						</code></pre>
 					</section>
 					<section>
-						<pre> <code class="javascript">
+						<pre> <code class="javascript big">
 vegaEmbed('#big_dino1',
   source={{ include_file('big_dino1.json') }}).then(
   function(result) {}).catch(console.error);
@@ -465,7 +562,7 @@ vegaEmbed('#big_dino1',
 							</aside>
 					</section>
 					<section>
-						<pre><code class='python' data-trim>
+						<pre><code class='python big' data-trim>
 uc = df.nunique().reset_index()
 uc.columns = ['field', 'count']
 alt.Chart(uc).mark_bar().encode(
@@ -478,7 +575,7 @@ alt.Chart(uc).mark_bar().encode(
 						<div id='unique_count1'>,/div>
 					</section>
 					<section>
-						<pre><code class='python' data-trim>
+						<pre><code class='python big' data-trim>
 alt.Chart(uc).mark_bar().encode(
 	y='field:N',
 	x='count:Q'
@@ -489,7 +586,7 @@ alt.Chart(uc).mark_bar().encode(
 						<div id='unique_count2'></div>
 					</section>
 					<section>
-						<pre><code class='python' data-trim>
+						<pre><code class='python big' data-trim>
 alt.Chart(uc).mark_bar().encode(
 	y='field:N',
 	x='count:Q'
@@ -616,7 +713,7 @@ alt.Chart(uc).mark_bar().encode(
 							</aside>
 					</section>
 					<section>
-						<pre><code class='python' data-trim data-noescape>
+						<pre><code class='python big' data-trim data-noescape>
 long_data = (df.set_index('id')
   <mark>.stack()</mark>
   .reset_index()
@@ -627,7 +724,7 @@ long_data = (df.set_index('id')
   .set_index('id')
 )
 						</code></pre>
-						<pre class = 'fragment'><code class='python' data-trim>
+						<pre class = 'fragment'><code class='python big' data-trim>
 long_data = pd.merge(long_data,
   df,
   how = 'inner',
@@ -763,7 +860,7 @@ long_data = pd.merge(long_data,
 					<section>
 						<div class = "container">
 							<div class = "col">
-								<pre><code class = "python" data-trim>
+								<pre><code class = "python big" data-trim>
 alt.Chart(df).mark_bar(
 ).encode(
   x = 'count:Q',
@@ -781,7 +878,7 @@ alt.Chart(df).mark_bar(
 					<section>
 						<div class = "container">
 							<div class = "col">
-								<pre><code class = "python" data-trim>
+								<pre><code class = "python big" data-trim>
 alt.Chart(df).mark_bar(
 ).encode(
   x = 'freq:Q',
@@ -799,7 +896,7 @@ alt.Chart(df).mark_bar(
 					<section>
 						<div class = "container">
 							<div class = "col">
-								<pre><code class = "python" data-trim>
+								<pre><code class = "python big" data-trim>
 df['end_percent'] = (
   df.groupby('field_name')
   ['freq'].cumsum()
@@ -822,7 +919,7 @@ alt.Chart(df).mark_bar(
 					<section>
 						<div class = "container">
 							<div class = "col">
-								<pre><code class = "python" data-trim>
+								<pre><code class = "python big" data-trim>
 df['start_percent'] = (
   df.groupby('field_name')
   ['end_percent'].shift(1).
@@ -847,7 +944,7 @@ alt.Chart(df).mark_bar(
 					<section>
 						<div class = "container">
 							<div class = "col">
-								<pre><code class = "python" data-trim>
+								<pre><code class = "python big" data-trim>
 alt.Chart(df).mark_bar(
 ).encode(
   x = 'start_percent:Q',
@@ -865,7 +962,7 @@ alt.Chart(df).mark_bar(
 					<section>
 						<div class = "container">
 							<div class = "col">
-								<pre><code class = "python" data-trim style = 'width: 300px; height: 600px; overflow-x: visible; overflow-y: visible;'>
+								<pre><code class = "python big" data-trim style = 'width: 300px; height: 600px; overflow-x: visible; overflow-y: visible;'>
 (df['negative'] = 
   df['response']
   .apply(lambda x :
@@ -1011,6 +1108,22 @@ vegaEmbed('#big_dino1', spec, opt).then(function(result) {}).catch(console.error
 	<script type="text/javascript">
 		var spec = 'small_dino1.json';
 		vegaEmbed('#small_dino1_4', spec, opt).then(function(result) {}).catch(console.error);
+	</script>
+	<script type="text/javascript">
+		var spec = 'bin.json';
+		vegaEmbed('#bin', spec, opt).then(function(result) {}).catch(console.error);
+	</script>
+	<script type="text/javascript">
+		var spec = 'mean.json';
+		vegaEmbed('#mean', spec, opt).then(function(result) {}).catch(console.error);
+	</script>
+	<script type="text/javascript">
+		var spec = 'datasaurus_small.json';
+		vegaEmbed('#datasaurus_small', spec, opt).then(function(result) {}).catch(console.error);
+	</script>
+	<script type="text/javascript">
+		var spec = 'layers.json';
+		vegaEmbed('#layers', spec, opt).then(function(result) {}).catch(console.error);
 	</script>
 	<script type="text/javascript">
 		var spec = 'anscombe_all.json';
