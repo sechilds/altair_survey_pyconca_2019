@@ -860,6 +860,22 @@ counts = pd.concat([counts, freq], axis = 1)
 counts.columns = ['count', 'freq']
 counts.reset_index()
 						</code></pre>
+						<pre><code class = "python big fragment" data-trim>
+filters = ['Gender', 'Customer Type', 'Type of Travel', 'Class']
+						</code></pre>
+						<pre><code class = "python big fragment" data-trim>
+def all_combinations(any_list):
+  return chain.from_iterable(
+    combinations(any_list, i) for i in range(len(any_list)+1))
+						</code></pre>
+						<pre><code class = "python big fragment" data-trim>
+combos = (count_data(counts,
+  group_fields = list(i))
+  for i in all_combinations(filters))
+						</code></pre>
+						<pre><code class = "python big fragment" data-trim>
+pd.concat(combos, axis = 0, sort = False)
+						</code></pre>
 						<aside class = "notes">
 							<h1> Aggregation</h1>
 							We group first by field_name and response to
