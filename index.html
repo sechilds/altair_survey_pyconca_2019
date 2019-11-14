@@ -23,7 +23,6 @@
 		</script>
 		<script type="text/javascript" src="vega@5"></script>
   		<script type="text/javascript" src="vega-lite@3.4.0"></script>
-        <script type="text/javascript" src="vega-embed@4"></script>
 	</head>
 	<body>
 		<style>
@@ -39,11 +38,16 @@
 				overflow-x: visible !important;
 				overflow-y: visible !important;
 				background: transparent !important;
+			}
+			#vg-tooltip-element.vg-tooltip {
+				font-size: 28px;
+			}
 		</style>
+        <script type="text/javascript" src="vega-embed@4"></script>
 
 		<div class="reveal">
 			<div class="slides">
-				<section><h1>Data Visualization wtih Altair</h1>
+				<section><h1>Data Visualization with Altair</h1>
 					<h2>Survey Data Case Study</h2>
 					<p>Stephen Childs</p>
 					<p><div class = 'container' style = 'width: 960px'><div class = "col" style='text-align:left;'>PyCon Canada 2019</div>
@@ -1278,6 +1282,10 @@ alt.Chart(df).mark_bar(
 							<div class = "col"
 								<div id='div_bar3'></div>
 							</div>
+							<aside class = notes>
+								<h1>Cumulative sum - to spread the
+									bar fully across the space</h1>
+							</aside>
 					</section>
 					<section>
 						<div class = "container">
@@ -1303,6 +1311,9 @@ alt.Chart(df).mark_bar(
 							<div class = "col"
 								<div id='div_bar4'></div>
 							</div>
+							<aside class = "notes">
+								<h1>Lag the cumulative percentage</h1>
+							</aside>
 					</section>
 					<section>
 						<div class = "container">
@@ -1321,6 +1332,10 @@ alt.Chart(df).mark_bar(
 							<div class = "col"
 								<div id='div_bar5'></div>
 							</div>
+							<aside class = "notes">
+								<h1>Remove the y axis</h1>
+								<p>Put all the bars on the same row</p>
+							</aside>
 					</section>
 					<section>
 						<div class = "container">
@@ -1354,6 +1369,11 @@ alt.Chart(df).mark_bar(
 							<div class = "col"
 								<div id='div_bar6'></div>
 							</div>
+							<aside class = "notes">
+							Subtract the total of negative respones from
+							the starting point to position the bar
+							based on those answers.
+							</aside>
 					</section>
 					</section>
 					<section>
@@ -1387,7 +1407,7 @@ alt.Chart(df).mark_bar(
 
 		var opt2 = {theme: 'dark',
 			       renderer: 'svg',
-			       tooltip: false,
+				   tooltip: {theme : 'dark'},
 			       hover: true,
 				   actions: false}
 
