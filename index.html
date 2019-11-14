@@ -893,10 +893,7 @@ alt.Chart(uc).mark_bar().encode(
 							  </tbody>
 							</table>
 							<aside class="notes">
-								Survey data in it's raw form.
-								Row are individual respondents.
-								Columns are questions or characteritics of
-								the respondent.
+								<p>Here is our survey again.</p>
 							</aside>
 					</section>
 					<section>
@@ -919,10 +916,11 @@ long_data = pd.merge(long_data,
   right_index = True)
 					 	</code></pre>
 						<aside class="notes">
-							We transform the data with <code>stack</code>.
+							<h1>Tranformation</h1>
+							<p>We transform the data with <code>stack</code>.
 							We merge in the original dataset so
 							we now have all answers and characteristics
-							available to fitler on.
+							available to fitler on.</p>
 						</aside>
 					</section>
 					<section>
@@ -1033,10 +1031,11 @@ long_data = pd.merge(long_data,
 							  </tbody>
 							</table>
 							<aside class = "notes">
-								The transformed data. Note how the <code>id</code>
+								<h1>Transformed Data</h1>
+								<p>The transformed data. Note how the <code>id</code>
 								field is repeated in multiple rows.
 								Because we merged in the table -- we now
-								have the same fields we had in the first table.
+								have the same fields we had in the first table.</p>
 							</aside>
 					</section>
 					<section>
