@@ -1046,6 +1046,17 @@ counts = pd.concat([counts, freq], axis = 1)
 counts.columns = ['count', 'freq']
 counts.reset_index()
 						</code></pre>
+						<aside class = "notes">
+							<h1> Aggregation</h1>
+							We group first by field_name and response to
+							get the count of the responses.
+							The second group by calculates the percentage.
+							You can add additional fields to the groupby
+							to do the same process for subgroups.
+
+							You can also do other calculations - like
+							statistics. (Beyond the scope here.)
+						</aside>
 					</section>
 					<section>
 						<pre><code class = "python big" data-trim>
@@ -1065,15 +1076,11 @@ combos = (count_data(counts,
 pd.concat(combos, axis = 0, sort = False)
 						</code></pre>
 						<aside class = "notes">
-							<h1> Aggregation</h1>
-							We group first by field_name and response to
-							get the count of the responses.
-							The second group by calculates the percentage.
-							You can add additional fields to the groupby
-							to do the same process for subgroups.
-
-							You can also do other calculations - like
-							statistics. (Beyond the scope here.)
+							<h1>Aggregation - across categories</h1>
+							<p>Turn the last slide into a function count_data.
+							Then you can look at all the possible filters,
+							generate all possible combinations with
+							the itertools package and put them together.
 						</aside>
 					</section>
 					<section>
@@ -1193,6 +1200,12 @@ pd.concat(combos, axis = 0, sort = False)
 									</tr>
 								  </tbody>
 								</table>
+								<aside class = "notes">
+									<h1>Aggregated Counts</h1>
+									<p>We now have aggregated totals for
+									question and response - plus percentages.
+									And by various passenger characteristcs.</p>
+								</aside>
 					</section>
 					</section>
 					<section>
@@ -1213,6 +1226,12 @@ alt.Chart(df).mark_bar(
 							<div class = "col">
 								<div id='div_bar1'></div>
 							</div>
+						<aside class = "notes">
+							<h1>Diverging Bar Chart</h1>
+							To visualize this data, I will build
+							a diverging bar chart. This starts
+							as a simple bar chart by question.
+						</aside>
 					</section>
 					<section>
 						<div class = "container">
@@ -1231,6 +1250,11 @@ alt.Chart(df).mark_bar(
 							<div class = "col"
 								<div id='div_bar2'></div>
 							</div>
+						<aside class = "notes">
+							<h1>By Percentage</h1>
+							<p>This makes it easier to compare
+							across questions and groups.</p>
+						</aside>
 					</section>
 					<section>
 						<div class = "container">
