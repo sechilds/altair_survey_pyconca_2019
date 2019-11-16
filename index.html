@@ -192,6 +192,9 @@
 							<p>Highlight a selection and move it around.</p>
 						</aside>
 					</section>
+					<section>
+						<div id='map'></div>
+					</section>
 				</section>
 				<section>
 					<div id="anscombe_all"></div>
@@ -1388,6 +1391,17 @@ alt.Chart(df).mark_bar(
 					</section>
 					<section>
 						<h1>Resources</h1>
+						<ul>
+							<li>Altair Documentation - <a href = "https://altair-viz.github.io">https://altair-viz.github.io</a></li>
+							<li>Altair Example Gallery - <a href = "https://altair-viz.github.io/gallery/index.html">https://altair-viz.github.io/gallery/index.html</a></li>
+							<li>Vega and Vega Lite - <a href = "https://vega.github.io">https://vega.github.io</a></li>
+							<li>PyCon Videos by <a href = "https://pyvideo.org/speaker/jake-vanderplas.html">Jake Vanderplas</a>
+								<ul style = 'font-size:32px'>
+									<li>PyCon US 2017 - <a href = "https://www.youtube.com/watch?v=FytuB8nFHPQ">The Python Visualization Landscape</a></li>
+									<li>PyCon US 2018 - <a href = "https://pyvideo.org/pycon-us-2018/exploratory-data-visualization-with-vega-vega-lite-and-altair.html">Exploratory Data Visualization with Vega, Vega-Lite, and Altair</a></li>
+									<li>PyCon US 2019 - <a href = "https://pyvideo.org/pycon-us-2019/how-to-think-about-data-visualization.html">How to Think About Data Visualization</a></li>
+								</ul></li>
+						</ul>
 					</section>
 					<section>
 						<h2>Thank You!</h2>
@@ -1485,6 +1499,9 @@ alt.Chart(df).mark_bar(
 
 		var spec = 'layers.json';
 		vegaEmbed('#layers', spec, opt).then(function(result) {}).catch(console.error);
+
+		var spec = 'map.json';
+		vegaEmbed('#map', spec, opt2).then(function(result) {}).catch(console.error);
 
 		var spec = 'anscombe_all.json';
 		vegaEmbed('#anscombe_all', spec, opt).then(function(result) {}).catch(console.error);

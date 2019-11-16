@@ -19,7 +19,7 @@ travel_type_selection = alt.selection_single(bind=travel_type_dropdown, fields=[
 base = alt.Chart(df).encode(
         y = alt.Y('field_name:N', sort = alt.EncodingSortField(field = 'percent_positive', op = 'min', order = 'ascending')),
         tooltip = [alt.Tooltip('count:Q', title = 'Count of Records'),
-            alt.Tooltip('freq:Q', title = 'Percentage'),
+            alt.Tooltip('freq:Q', title = 'Percentage', format = '.2%'),
             alt.Tooltip('field_name:N', title = 'Question'),
             alt.Tooltip('response:Q', title = 'Answer')]
 ).transform_filter(
@@ -30,8 +30,8 @@ travel_type_selection
 )
 
 level1 = base.mark_bar().encode(
-        x = 'start_percent:Q',
-        x2 = 'end_percent:Q',
+        x = alt.X('start_percent:Q', title = 'Percentage'),
+        x2 = alt.X2('end_percent:Q', title = 'Percentage'),
         color = alt.Color('response:N', scale = alt.Scale(scheme = color_scale_scheme))
 ).add_selection(
         gender_selection,
@@ -40,7 +40,7 @@ level1 = base.mark_bar().encode(
         travel_type_selection)
 
 level2 = base.mark_text().encode(
-        x = 'midpoint_percent:Q',
+        x = alt.X('midpoint_percent:Q', title = 'Percentage'),
         text = alt.Text('freq:Q', format = '.2%'),
         opacity = alt.condition(
             alt.datum.freq > 0.2,
