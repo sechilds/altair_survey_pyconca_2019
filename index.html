@@ -1394,15 +1394,16 @@ alt.Chart(df).mark_bar(
 					<section>
 						<h1>Resources</h1>
 						<ul>
-							<li>Altair Documentation - <a href = "https://altair-viz.github.io">https://altair-viz.github.io</a></li>
-							<li>Altair Example Gallery - <a href = "https://altair-viz.github.io/gallery/index.html">https://altair-viz.github.io/gallery/index.html</a></li>
-							<li>Vega and Vega Lite - <a href = "https://vega.github.io">https://vega.github.io</a></li>
+							<li>Altair Documentation - <a href = "https://altair-viz.github.io">altair-viz.github.io</a></li>
+							<li>Altair Example Gallery - <a href = "https://altair-viz.github.io/gallery/index.html">altair-viz.github.io/gallery/index.html</a></li>
+							<li>Vega and Vega Lite - <a href = "https://vega.github.io">vega.github.io</a></li>
 							<li>PyCon Videos by <a href = "https://pyvideo.org/speaker/jake-vanderplas.html">Jake Vanderplas</a>
 								<ul style = 'font-size:32px'>
 									<li>PyCon US 2017 - <a href = "https://www.youtube.com/watch?v=FytuB8nFHPQ">The Python Visualization Landscape</a></li>
 									<li>PyCon US 2018 - <a href = "https://pyvideo.org/pycon-us-2018/exploratory-data-visualization-with-vega-vega-lite-and-altair.html">Exploratory Data Visualization with Vega, Vega-Lite, and Altair</a></li>
 									<li>PyCon US 2019 - <a href = "https://pyvideo.org/pycon-us-2019/how-to-think-about-data-visualization.html">How to Think About Data Visualization</a></li>
 								</ul></li>
+								<li>Passenger Satisfaction Dataset - <a href = "https://www.kaggle.com/johndddddd/customer-satisfaction">www.kaggle.com/johndddddd/customer-satisfaction</a></li>
 						</ul>
 					</section>
 					<section>
@@ -1420,6 +1421,9 @@ alt.Chart(df).mark_bar(
 						<h2>Questions?</h2>
 						<div><span style='display:inline-block;padding:5px 5px'><img src='twitter-brands.svg' height='40px' width='40px' style = 'border: none; vertical-align:middle; background-color:transparent;'></span><span style='display:inline-block; vertical-align:middle;padding: 5px 5px;'>@sechilds</span></div>
 						<div><span style='display:inline-block;padding:5px 5px'><img src='github-brands.svg' height='40px', width=40px' style = 'border: none; vertical-align:middle; background-color:transparent;'></span><span style='display-inline-block; vertical-align:middle;padding: 5px 5px;'>sechilds</span></div>
+						<aside class = "notes">
+							<h1>REPEAT QUESTIONS INTO MIC</h1>
+						</aside>
 					</section>
 			</div>
 		</div>
@@ -1510,7 +1514,7 @@ alt.Chart(df).mark_bar(
 		vegaEmbed('#datasaurus_small', spec, opt).then(function(result) {}).catch(console.error);
 
 		var spec = 'layers.json';
-		vegaEmbed('#layers', spec, opt).then(function(result) {}).catch(console.error);
+		vegaEmbed('#layers', spec, opt2).then(function(result) {}).catch(console.error);
 
 		var spec = 'map.json';
 		vegaEmbed('#map', spec, opt2).then(function(result) {}).catch(console.error);

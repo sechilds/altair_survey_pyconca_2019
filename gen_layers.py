@@ -12,10 +12,14 @@ heatmap = alt.Chart(source).mark_rect().encode(
 
 points = alt.Chart(source).mark_circle(
     color='white',
-    size=5,
+    size=25,
 ).encode(
     x=alt.X('IMDB_Rating:Q', axis = alt.Axis(title = 'IMDB')),
-    y=alt.Y('Rotten_Tomatoes_Rating:Q', axis = alt.Axis(title = 'Rotten Tomatoes'))
+    y=alt.Y('Rotten_Tomatoes_Rating:Q', axis = alt.Axis(title = 'Rotten Tomatoes')),
+    tooltip=['Title:N',
+        alt.Tooltip('Release_Date:N', title = 'Release Date'),
+        alt.Tooltip('US_Gross:Q', title = 'US Gross'),
+        alt.Tooltip('Worldwide_Gross:Q', title = 'Worldwide Gross')]
 )
 
 (heatmap + points
